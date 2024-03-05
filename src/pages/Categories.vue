@@ -27,14 +27,12 @@
 
 <script lang="ts" setup>
 import {AxiosResponse} from 'axios';
-import { ref, onMounted } from "vue";
 import { useToast } from "vue-toast-notification";
 import { useStore } from "vuex";
 import { api } from "../API/api";
-const categories = ref([]);
 const store = useStore();
 const $toast = useToast();
-const handleDelete = (e: MouseEvent) => {
+const handleDelete = (e: any) => {
   const response = api.deleteCategory(e?.target?.dataset?.id);
   response.then((res: AxiosResponse) => {
     if (res.status === 200) {

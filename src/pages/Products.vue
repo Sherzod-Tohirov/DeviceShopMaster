@@ -20,10 +20,9 @@
 <script lang="ts" setup>
 import Paginator from "primevue/paginator";
 import { useStore } from "vuex";
-import { watchEffect } from "vue";
 import ProductCard from "../components/ProductCard.vue";
 import NotFound from "../components/NotFound.vue";
-import { computed, ref, reactive, onMounted } from "vue";
+import { ref, onMounted } from "vue";
 const store =  useStore();
 const products = ref(store.getters.products || []);
 const itemPerPage = 6;
@@ -31,12 +30,9 @@ const currentPage = ref(0);
 
 onMounted(() => {
   products.value = store.getters.products;
-  console.log(products.value);
 });
 
 const onPageChange = (e) => {
-  console.log(e);
   currentPage.value = e.page;
-  // products.value = store.getters.products.slice(e.page * itemPerPage, e.page * itemPerPage + itemPerPage).filter(item => item);
 };
 </script>

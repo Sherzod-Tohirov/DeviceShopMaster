@@ -185,10 +185,8 @@ import { defineProps } from "vue";
 import store from "../store/index";
 import editProductSchema from "../schema/editProductSchema";
 import { AxiosResponse } from "axios";
-import { onMounted, ref, computed, reactive } from "vue";
-import * as Yup from "yup";
+import { onMounted, ref, reactive } from "vue";
 import { api } from "../API/api";
-import Modal from "../components/Modal.vue";
 import ProductType from "../types/ProductType";
 import { formatted_date } from "../lib/customFunctions";
 import { useToast } from "vue-toast-notification";
@@ -212,10 +210,6 @@ onMounted(async () => {
 const props = defineProps(["product"]);
 const selectedCategory = ref(props.product.category_title);
 const selectedVisibility = ref(props.product.product_visibility);
-
-const handleEdit = () => {
-  store.commit("toggleEditProductModal");
-};
 
 const toggleModal = () => {
   toggleModalRef.value = !toggleModalRef.value;
@@ -246,7 +240,6 @@ const handleDelete = () => {
       console.log(res);
 
       if (res.status === 200) {
-
         const response = api.getProducts();
         response.then((res: AxiosResponse) => {
           if (res.status === 200) {

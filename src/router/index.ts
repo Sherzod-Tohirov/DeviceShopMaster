@@ -3,7 +3,6 @@ import Home from "../pages/Home.vue";
 import Products from "../pages/Products.vue";
 import Categories from "../pages/Categories.vue";
 import NotFound from "../pages/NotFound.vue";
-import store from "../store";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
