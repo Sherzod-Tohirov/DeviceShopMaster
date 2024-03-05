@@ -145,6 +145,16 @@ button:active {
   background-color: transparent;
   z-index: 15;
 }
+
+.p-highlight {
+  @apply bg-green-300 text-white;
+}
+
+.narrow-btn {
+  @apply px-4 py-3 rounded-xl;
+}
+
+
 .active-link {
   @apply text-blue-500
 }

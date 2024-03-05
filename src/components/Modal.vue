@@ -10,8 +10,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref } from "vue";
-import store from "../store/index";
+import store from "../store/index"
 const handleClick = (e: MouseEvent) => {
   const target = e.target as Element;
   if (target.matches(".overlay")) {

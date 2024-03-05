@@ -15,6 +15,7 @@
     "json-server-auth": "^2.1.0",
     "json-server-uploader": "^1.0.3",
     "oh-vue-icons": "^1.0.0-rc3",
+    "primevue": "^3.49.1",
     "vee-validate": "^4.12.5",
     "vue": "^3.4.19",
     "vue-router": "^4.3.0",

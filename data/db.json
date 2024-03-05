@@ -10,7 +10,7 @@
       "category_title": "Phone",
       "product_image": "uploads/5swxixjp.jpg",
       "product_visibility": "true",
-      "created_at": "03.03.2024",
+      "created_at": "06.03.2024",
       "id": 2
     },
     {
@@ -43,7 +43,7 @@
       "category_title": "Laptop",
       "product_image": "uploads/qmr90ikn.jpg",
       "product_visibility": "true",
-      "created_at": "03.03.2024",
+      "created_at": "06.03.2024",
       "id": 5
     },
     {
@@ -58,17 +58,6 @@
       "id": 14
     },
     {
-      "model_title": "322332",
-      "release_year": "22323",
-      "retail_price": "3233",
-      "product_desc": "32232323",
-      "category_title": "Desktop",
-      "product_image": "uploads/6m6n6ev5.png",
-      "product_visibility": "true",
-      "created_at": "03.03.2024",
-      "id": 15
-    },
-    {
       "model_title": "Iphone 13Pro",
       "release_year": "2222",
       "retail_price": "3333",
@@ -76,7 +65,7 @@
       "category_title": "Desktop",
       "product_image": "uploads/b2kvjzdz.jpg",
       "product_visibility": "true",
-      "created_at": "03.03.2024",
+      "created_at": "06.03.2024",
       "id": 16
     },
     {
@@ -85,10 +74,21 @@
       "retail_price": "32322",
       "product_desc": "3232332",
       "category_title": "Furniture",
-      "product_image": "uploads/unpozk0z.jpg",
+      "product_image": "uploads/ztb5sc7w.jpg",
+      "product_visibility": "false",
+      "created_at": "06.03.2024",
+      "id": 17
+    },
+    {
+      "model_title": "Iphone 13Pro",
+      "release_year": "2002",
+      "retail_price": "500",
+      "product_desc": "Good",
+      "category_title": "Phone",
+      "product_image": "uploads/fvpldkn6.jpg",
       "product_visibility": "true",
       "created_at": "03.03.2024",
-      "id": 17
+      "id": 18
     }
   ],
   "categories": [
@@ -113,8 +113,9 @@
       "category_title": "Accessories"
     },
     {
-      "id": 6,
-      "category_title": "Furniture"
+      "category_title": "Furniture",
+      "created_at": "06.03.2024",
+      "id": 6
     }
   ]
 }

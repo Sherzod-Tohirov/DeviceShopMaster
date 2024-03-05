@@ -246,12 +246,14 @@ const handleDelete = () => {
       console.log(res);
 
       if (res.status === 200) {
+
         const response = api.getProducts();
         response.then((res: AxiosResponse) => {
           if (res.status === 200) {
             store.dispatch("updateProductsAction", res?.data);
           }
         });
+        $toast.success("Deleted successfully !");
         toggleDeleteModal();
       }
     })

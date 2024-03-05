@@ -35,14 +35,14 @@
         <button class="contained-btn" @click="toggleModal">
           Add new product
         </button>
-        <button class="contained-btn">Add new category</button>
+        <button class="contained-btn" @click="toggleCategoryModal">Add new category</button>
         <p class="select-none opacity-15 text-lg">
           ...Other actions coming soon
         </p>
       </div>
     </div>
   </div>
-  <div class="overlay" @click="handCloseModal" v-if="modalRef">
+  <div class="overlay" @click="handleCloseModal" v-if="modalRef">
     <div class="modal">
       <button class="close-btn">&times;</button>
       <div class="flex flex-col items-center justify-center gap-5 w-full">
@@ -137,11 +137,44 @@
       </div>
     </div>
   </div>
+  <div class="overlay" @click="handleCategoryCloseModal" v-if="categoryRef">
+    <div class="modal">
+      <button class="close-btn">&times;</button>
+      <div class="flex flex-col items-center justify-center gap-5 w-full">
+        <h3 class="text-4xl">Add Category</h3>
+        <Form
+          class="flex flex-col gap-4 w-full items-center"
+          @submit="onCategorySubmit"
+          :validation-schema="addCategorySchema"
+        >
+          <div class="flex gap-5 w-full">
+            <div class="flex flex-col gap-2 w-full">
+              <Field
+                class="form-input"
+                name="category_title"
+                placeholder="Category title*"
+                type="text"
+              />
+              <ErrorMessage class="err-msg" name="category_title" />
+            </div>
+          </div>
+          <button
+            class="contained-btn"
+            :disabled="loading.loader"
+            type="submit"
+          >
+            Submit
+          </button>
+        </Form>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script lang="ts" setup>
 import { Form, Field, ErrorMessage } from "vee-validate";
 import productSchema from "../schema/productSchema";
+import addCategorySchema from '../schema/addCategorySchema';
 import { onMounted, ref, computed, reactive } from "vue";
 import * as Yup from "yup";
 import { AxiosResponse } from "axios";
@@ -151,6 +184,8 @@ import { formatted_date } from "../lib/customFunctions";
 import { useToast } from "vue-toast-notification";
 import "vue-toast-notification/dist/theme-sugar.css";
 import store from "../store/index";
+import CategoryType from "../types/CategoryType";
+
 const filterModelRef = ref("");
 let timeout = undefined as number | undefined;
 const handleFilterModel = (e: MouseEvent) => {
@@ -176,14 +211,15 @@ const handleFilterModel = (e: MouseEvent) => {
 };
 
 const handleFilterCategory = (e: MouseEvent) => {
-    const response = api.getProductsByCategory(e?.target?.value);
-    response.then((res:AxiosResponse) => {
-      if(res.status === 200) {
-          store.dispatch("updateProductsAction", res?.data);
+  const response = api.getProductsByCategory(e?.target?.value);
+  response
+    .then((res: AxiosResponse) => {
+      if (res.status === 200) {
+        store.dispatch("updateProductsAction", res?.data);
       }
     })
     .catch((err: AxiosResponse) => console.log(err));
-}
+};
 
 const categories = ref([]);
 const response = api.getCategories();
@@ -194,12 +230,23 @@ response.then((res) => {
 });
 const loading = ref(false);
 const modalRef = ref(false);
+const categoryRef = ref(false);
 const toggleModal = () => {
   modalRef.value = !modalRef.value;
 };
-const handCloseModal = (e) => {
+
+const toggleCategoryModal = () => {
+  categoryRef.value = !categoryRef.value;
+};
+const handleCloseModal = (e) => {
   if (e.target.matches(".overlay") || e.target.matches(".close-btn")) {
     toggleModal();
+  }
+};
+
+const handleCategoryCloseModal = (e) => {
+  if (e.target.matches(".overlay") || e.target.matches(".close-btn")) {
+    toggleCategoryModal();
   }
 };
 
@@ -229,14 +276,29 @@ const onSubmit = (values: ProductType, { resetForm }: any) => {
   productData.append("product_visibility", isProductVisible.value);
   productData.append("created_at", formatted_date());
   const response = api.addProduct(productData);
-  response.then((res: AxiosResponse) => console.log(res));
-  console.log(isProductVisible);
-  response.then((res) => {
+  response.then((res: AxiosResponse) => {
     if (res?.status === 201) {
       loading.value = false;
       resetForm();
       toggleModal();
       store.dispatch("fetchProductsData");
+      $toast.success("Created successfully !");
+    }
+  });
+};
+
+const onCategorySubmit = (values: CategoryType, { resetForm }: any) => {
+  loading.value = true;
+  const categoryData = new FormData();
+  categoryData.append("category_title", values?.category_title);
+  categoryData.append("created_at", formatted_date());
+  const response = api.addCategory(categoryData);
+  response.then((res: AxiosResponse) => {
+    if (res?.status === 201) {
+      loading.value = false;
+      resetForm();
+      toggleCategoryModal();
+      store.dispatch("fetchCategoriesData")
       $toast.success("Created successfully !");
     }
   });

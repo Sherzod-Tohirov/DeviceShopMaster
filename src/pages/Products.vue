@@ -3,20 +3,40 @@
   <ul class="product-list">
     <ProductCard
       :product="product"
-      v-for="product in store.getters.products"
+      v-for="product in store.getters.products.slice(currentPage * itemPerPage, currentPage * itemPerPage + itemPerPage)"
       :key="product.id"
     />
-    <p class="text-5xl">{{ store.getters.myState }}</p>
     <NotFound v-if="store.getters.products?.length === 0" />
   </ul>
+  <Paginator
+    v-if="store.getters.products.length"
+    v-model="currentPage"
+    :rows="itemPerPage"
+    :totalRecords="store.getters.products.length"
+    @page="onPageChange"
+  ></Paginator>
 </template>
 
 <script lang="ts" setup>
+import Paginator from "primevue/paginator";
 import { useStore } from "vuex";
 import { watchEffect } from "vue";
 import ProductCard from "../components/ProductCard.vue";
 import NotFound from "../components/NotFound.vue";
 import { computed, ref, reactive, onMounted } from "vue";
-const products = ref([]);
-const store = useStore();
+const store =  useStore();
+const products = ref(store.getters.products || []);
+const itemPerPage = 6;
+const currentPage = ref(0);
+
+onMounted(() => {
+  products.value = store.getters.products;
+  console.log(products.value);
+});
+
+const onPageChange = (e) => {
+  console.log(e);
+  currentPage.value = e.page;
+  // products.value = store.getters.products.slice(e.page * itemPerPage, e.page * itemPerPage + itemPerPage).filter(item => item);
+};
 </script>
