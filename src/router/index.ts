@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import Home from "../pages/Home.vue";
 import Products from "../pages/Products.vue";
 import Categories from "../pages/Categories.vue";
+import NotFound from "../pages/NotFound.vue";
 import store from "../store";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -12,29 +13,21 @@ const router = createRouter({
       component: Home,
       children: [
         {
-          path: '',
+          path: "",
           component: Products,
         },
         {
-            path: "categories",
-            component: Categories,
-          },
+          path: "categories",
+          component: Categories,
+        },
       ],
     },
+    {
+      path: "/:catchAll(.*)/",
+      name: "404",
+      component: NotFound
+    }
   ],
 });
-
-router.beforeEach(async (to, from, next) => {
-    if(!store.state.products.length) {
-      try {
-        await store.dispatch('fetchProductsData');
-        next();
-      }catch(err)  {
-        console.log(err);
-      }
-    }else {
-      next();
-    }
-})
 
 export default router;

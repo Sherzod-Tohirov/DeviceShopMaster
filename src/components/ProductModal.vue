@@ -97,7 +97,6 @@ import { Form, Field, ErrorMessage } from "vee-validate";
 const categories = ref([]);
 const isProductVisible = ref(false);
 
-const {onSubmit, title} = defineProps(["onSubmit", "title"]);
 onMounted(async () => {
   const response = await api.getCategories();
   if (response.status === 200) {

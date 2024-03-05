@@ -55,6 +55,7 @@ body {
   margin: 0;
   font-family: "Outfit", "Arial", sans-serif;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 .edit-btn {

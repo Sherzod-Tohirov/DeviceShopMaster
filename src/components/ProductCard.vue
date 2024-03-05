@@ -213,7 +213,7 @@ const props = defineProps(["product"]);
 const selectedCategory = ref(props.product.category_title);
 const selectedVisibility = ref(props.product.product_visibility);
 
-const handleEdit = (e: MouseEvent) => {
+const handleEdit = () => {
   store.commit("toggleEditProductModal");
 };
 
@@ -260,7 +260,7 @@ const handleDelete = () => {
     .catch((err: AxiosResponse) => console.log(err));
 };
 
-const onSubmit = (values: ProductType, { resetForm }: any) => {
+const onSubmit = (values: ProductType, { resetForm }) => {
   loading.loader = true;
   console.log(isProductVisible);
 
