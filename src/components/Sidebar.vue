@@ -128,7 +128,6 @@
           </Field>
           <button
             class="contained-btn"
-            :disabled="loading.loader"
             type="submit"
           >
             Submit
@@ -160,7 +159,6 @@
           </div>
           <button
             class="contained-btn"
-            :disabled="loading.loader"
             type="submit"
           >
             Submit
@@ -175,8 +173,7 @@
 import { Form, Field, ErrorMessage } from "vee-validate";
 import productSchema from "../schema/productSchema";
 import addCategorySchema from '../schema/addCategorySchema';
-import { onMounted, ref, computed, reactive } from "vue";
-import * as Yup from "yup";
+import { onMounted, ref } from "vue";
 import { AxiosResponse } from "axios";
 import { api } from "../API/api";
 import ProductType from "../types/ProductType";
@@ -187,8 +184,8 @@ import store from "../store/index";
 import CategoryType from "../types/CategoryType";
 
 const filterModelRef = ref("");
-let timeout = undefined as number | undefined;
-const handleFilterModel = (e: MouseEvent) => {
+let timeout = undefined as (number | undefined);
+const handleFilterModel = (e: any) => {
   if (timeout) {
     clearInterval(timeout);
   }
@@ -210,7 +207,7 @@ const handleFilterModel = (e: MouseEvent) => {
   }, 800);
 };
 
-const handleFilterCategory = (e: MouseEvent) => {
+const handleFilterCategory = (e: any) => {
   const response = api.getProductsByCategory(e?.target?.value);
   response
     .then((res: AxiosResponse) => {
@@ -228,7 +225,6 @@ response.then((res) => {
     categories.value = res.data;
   }
 });
-const loading = ref(false);
 const modalRef = ref(false);
 const categoryRef = ref(false);
 const toggleModal = () => {
@@ -263,9 +259,6 @@ onMounted(async () => {
   }
 });
 const onSubmit = (values: ProductType, { resetForm }: any) => {
-  loading.value = true;
-  console.log(isProductVisible);
-
   const productData = new FormData();
   productData.append("model_title", values?.model_title);
   productData.append("release_year", values?.release_year);
@@ -278,7 +271,6 @@ const onSubmit = (values: ProductType, { resetForm }: any) => {
   const response = api.addProduct(productData);
   response.then((res: AxiosResponse) => {
     if (res?.status === 201) {
-      loading.value = false;
       resetForm();
       toggleModal();
       store.dispatch("fetchProductsData");
@@ -288,14 +280,12 @@ const onSubmit = (values: ProductType, { resetForm }: any) => {
 };
 
 const onCategorySubmit = (values: CategoryType, { resetForm }: any) => {
-  loading.value = true;
   const categoryData = new FormData();
   categoryData.append("category_title", values?.category_title);
   categoryData.append("created_at", formatted_date());
   const response = api.addCategory(categoryData);
   response.then((res: AxiosResponse) => {
     if (res?.status === 201) {
-      loading.value = false;
       resetForm();
       toggleCategoryModal();
       store.dispatch("fetchCategoriesData")
