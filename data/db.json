@@ -1,0 +1,120 @@
+{
+  "users": [],
+  "admins": [],
+  "products": [
+    {
+      "model_title": "S23Ultra",
+      "release_year": "2023",
+      "retail_price": "500",
+      "product_desc": "wear",
+      "category_title": "Phone",
+      "product_image": "uploads/5swxixjp.jpg",
+      "product_visibility": "true",
+      "created_at": "03.03.2024",
+      "id": 2
+    },
+    {
+      "model_title": "Iphone 13Pro",
+      "release_year": "2022",
+      "retail_price": "600",
+      "product_desc": "Some description",
+      "category_title": "Phone",
+      "product_image": "uploads/a7hlswo2.jpg",
+      "product_visibility": "false",
+      "created_at": "03.03.2024",
+      "id": 3
+    },
+    {
+      "model_title": "S23Ultra",
+      "release_year": "2222",
+      "retail_price": "2222",
+      "product_desc": "22222",
+      "category_title": "Desktop",
+      "product_image": "uploads/5vkwqa2z.jpg",
+      "product_visibility": "true",
+      "created_at": "03.03.2024",
+      "id": 4
+    },
+    {
+      "model_title": "Iphone 13Pro",
+      "release_year": "3333",
+      "retail_price": "3333",
+      "product_desc": "3222332",
+      "category_title": "Laptop",
+      "product_image": "uploads/qmr90ikn.jpg",
+      "product_visibility": "true",
+      "created_at": "03.03.2024",
+      "id": 5
+    },
+    {
+      "model_title": "dsddsds",
+      "release_year": "3233",
+      "retail_price": "22222",
+      "product_desc": "332323",
+      "category_title": "Phone",
+      "product_image": "uploads/toul9bwk.jpg",
+      "product_visibility": "true",
+      "created_at": "03.03.2024",
+      "id": 14
+    },
+    {
+      "model_title": "322332",
+      "release_year": "22323",
+      "retail_price": "3233",
+      "product_desc": "32232323",
+      "category_title": "Desktop",
+      "product_image": "uploads/6m6n6ev5.png",
+      "product_visibility": "true",
+      "created_at": "03.03.2024",
+      "id": 15
+    },
+    {
+      "model_title": "Iphone 13Pro",
+      "release_year": "2222",
+      "retail_price": "3333",
+      "product_desc": "32323232",
+      "category_title": "Desktop",
+      "product_image": "uploads/b2kvjzdz.jpg",
+      "product_visibility": "true",
+      "created_at": "03.03.2024",
+      "id": 16
+    },
+    {
+      "model_title": "Iphone 13Pro",
+      "release_year": "2222",
+      "retail_price": "32322",
+      "product_desc": "3232332",
+      "category_title": "Furniture",
+      "product_image": "uploads/unpozk0z.jpg",
+      "product_visibility": "true",
+      "created_at": "03.03.2024",
+      "id": 17
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "category_title": "Laptop"
+    },
+    {
+      "id": 2,
+      "category_title": "Desktop"
+    },
+    {
+      "id": 3,
+      "category_title": "Phone"
+    },
+    {
+      "id": 4,
+      "category_title": "Tablet"
+    },
+    {
+      "id": 5,
+      "category_title": "Accessories"
+    },
+    {
+      "id": 6,
+      "category_title": "Furniture"
+    }
+  ]
+}

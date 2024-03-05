@@ -1,0 +1,13 @@
+import 'vue-toast-notification/dist/theme-bootstrap.css';
+import ToastPlugin from 'vue-toast-notification';
+import { createApp } from "vue";
+import router from "./router/index";
+import App from "./App.vue";
+import store from './store';
+import "./style.css";
+const app = createApp(App);
+app.use(router);
+app.use(store);
+app.use(ToastPlugin);
+store.dispatch('fetchProductsData');
+app.mount("#app");

@@ -1,0 +1,171 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-display: swap;
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 300;
+  src: url("./assets/fonts/Outfit/light.woff") format("woff"),
+    url("./assets/fonts/Outfit/light.woff2") format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./assets/fonts/Outfit/regular.woff") format("woff"),
+    url("./assets/fonts/Outfit/regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 500;
+  src: url("./assets/fonts/Outfit/medium.woff") format("woff"),
+    url("./assets/fonts/Outfit/medium.woff2") format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 600;
+  src: url("./assets/fonts/Outfit/semibold.woff") format("woff"),
+    url("./assets/fonts/Outfit/semibold.woff2") format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 700;
+  src: url("./assets/fonts/Outfit/bold.woff") format("woff"),
+    url("./assets/fonts/Outfit/bold.woff2") format("woff2");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Outfit", "Arial", sans-serif;
+  scroll-behavior: smooth;
+}
+
+.edit-btn {
+  @apply flex-grow p-2 rounded-md text-blue-500 border border-blue-500 hover:bg-blue-500 hover:text-white transition;
+}
+
+.delete-btn {
+  @apply flex-grow p-2 rounded-md text-red-500 border border-red-500 hover:bg-red-500 hover:text-white transition;
+}
+
+.price-tag {
+  @apply absolute top-0 right-0 text-xl text-center font-medium p-2 bg-green-400 text-white rounded-ss-xl;
+}
+
+.product-list {
+  @apply list-none flex flex-wrap justify-center w-full gap-5;
+}
+.contained-btn {
+  @apply w-full p-4 bg-blue-500 rounded-md text-white text-xl;
+}
+
+.form-input {
+  @apply w-full p-5 border border-slate-500 shadow-sm rounded-md text-lg placeholder:text-slate-600;
+}
+
+.select-input {
+  @apply text-slate-600;
+}
+
+.select-input option {
+  @apply text-slate-600; 
+}
+
+
+
+.checkbox-input {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  @apply accent-green-500
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.429);
+  z-index: 100;
+  backdrop-filter: blur(4px);
+
+}
+
+.modal {
+  position: relative;
+  background-color: #fff;
+  max-width: 800px;
+  min-height: 400px;
+  width: 100%;
+  border-radius: 10px;
+  padding: 15px;
+  padding: 30px 60px;
+  max-height: 80vh;
+  overflow: auto;
+}
+
+.close-btn {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  font-size: 45px;
+}
+
+button {
+  transition: 0.3s;
+}
+
+button:active {
+  transform: scale(0.9);
+}
+
+.blurry {
+  backdrop-filter: blur(4px);
+  background-color: transparent;
+  z-index: 15;
+}
+.active-link {
+  @apply text-blue-500
+}
+
+.err-msg {
+  @apply text-red-500 mr-auto;
+}
+
+.danger-btn {
+  @apply bg-red-500;
+}
+
+
+::-webkit-scrollbar {
+  width: 0.5vw;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-400;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-slate-50;
+}
