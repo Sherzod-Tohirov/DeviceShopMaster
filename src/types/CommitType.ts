@@ -1,3 +1,5 @@
 export default interface Commit {
-  commit: Function;
+  commit: any;
 }
+
+// commit: Function;
