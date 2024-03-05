@@ -1,10 +1,10 @@
 export default interface ProductType {
-    model_title: any,
-    release_year: any,
-    retail_price: any,
-    product_desc: any,
-    category_title: any,
-    product_image: any,
-    product_visibility: any,
-    created_at: any
+    model_title: string,
+    release_year: string | Blob,
+    retail_price: string | Blob,
+    product_desc: string,
+    category_title: string,
+    product_image: string | File | Blob,
+    product_visibility: boolean | string | undefined,
+    created_at: string
 }
