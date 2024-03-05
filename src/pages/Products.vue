@@ -11,7 +11,7 @@
   </ul>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { useStore } from "vuex";
 import { watchEffect } from "vue";
 import ProductCard from "../components/ProductCard.vue";
