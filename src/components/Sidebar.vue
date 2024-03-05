@@ -246,7 +246,7 @@ const handleCategoryCloseModal = (e) => {
   }
 };
 
-const isProductVisible = ref(false);
+const isProductVisible: any = ref(false);
 
 const $toast = useToast();
 
