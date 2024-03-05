@@ -2,7 +2,7 @@ import axios from "axios";
 import ProductType from "../types/ProductType";
 import CategoryType from "../types/CategoryType";
 
-const BASE_URL = "http://localhost:3000";
+const BASE_URL = "http://localhost:8080";
 
 export const api = {
   getCategories: () => {

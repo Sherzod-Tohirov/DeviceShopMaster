@@ -29,18 +29,18 @@
       "release_year": "2222",
       "retail_price": "2222",
       "product_desc": "22222",
-      "category_title": "Desktop",
+      "category_title": "Phone",
       "product_image": "uploads/5vkwqa2z.jpg",
       "product_visibility": "true",
-      "created_at": "03.03.2024",
+      "created_at": "06.03.2024",
       "id": 4
     },
     {
       "model_title": "Iphone 13Pro",
-      "release_year": "3333",
-      "retail_price": "3333",
+      "release_year": "2024",
+      "retail_price": "800",
       "product_desc": "3222332",
-      "category_title": "Laptop",
+      "category_title": "Phone",
       "product_image": "uploads/qmr90ikn.jpg",
       "product_visibility": "true",
       "created_at": "06.03.2024",
@@ -62,7 +62,7 @@
       "release_year": "2222",
       "retail_price": "3333",
       "product_desc": "32323232",
-      "category_title": "Desktop",
+      "category_title": "Phone",
       "product_image": "uploads/b2kvjzdz.jpg",
       "product_visibility": "true",
       "created_at": "06.03.2024",
@@ -73,7 +73,7 @@
       "release_year": "2222",
       "retail_price": "32322",
       "product_desc": "3232332",
-      "category_title": "Furniture",
+      "category_title": "Phone",
       "product_image": "uploads/ztb5sc7w.jpg",
       "product_visibility": "false",
       "created_at": "06.03.2024",
@@ -89,6 +89,50 @@
       "product_visibility": "true",
       "created_at": "03.03.2024",
       "id": 18
+    },
+    {
+      "model_title": "Laptop H850",
+      "release_year": "2024",
+      "retail_price": "900",
+      "product_desc": "HP NoteBook is a Windows 10 laptop with a 15.60-inch display that has a resolution of 1366x768 pixels. It is powered by a Core i5 processor and it comes with 8GB of RAM. The HP NoteBook packs 256GB of SSD storage.",
+      "category_title": "Laptop",
+      "product_image": "uploads/f4427t74.jpg",
+      "product_visibility": "true",
+      "created_at": "06.03.2024",
+      "id": 19
+    },
+    {
+      "model_title": "HP Desktop HW484",
+      "release_year": "2023",
+      "retail_price": "1200",
+      "product_desc": "OPERATING SYSTEMWindows 11 Home\r\nPROCESSORIntel® Core™ i5 1135G7 (11th Generation)\r\nMEMORY8 GB RAM\r\nSTORAGE512 GB SSD\r\nDISPLAY60.5 cm (23.8 \"), FHD (1920 x 1080)",
+      "category_title": "Desktop",
+      "product_image": "uploads/qun073w6.avif",
+      "product_visibility": "true",
+      "created_at": "06.03.2024",
+      "id": 20
+    },
+    {
+      "model_title": "Galaxy Tab S6",
+      "release_year": "2024",
+      "retail_price": "450",
+      "product_desc": "The Samsung Galaxy Tab S6 Lite is the ultimate notepad for study, featuring a highly responsive S Pen, compact and light profile with a large screen, and security features that let students study safely. Capture every moment with Samsung Notes—ideal for academic note taking.",
+      "category_title": "Tablet",
+      "product_image": "uploads/l9lajee7.jpeg",
+      "product_visibility": "true",
+      "created_at": "06.03.2024",
+      "id": 21
+    },
+    {
+      "model_title": "Sofa Furniture S600",
+      "release_year": "2023",
+      "retail_price": "1500",
+      "product_desc": "Fortuna is a contemporary dining table with a one-of-a-kind design aesthetic and refined statement to the most influential minds.",
+      "category_title": "Furniture",
+      "product_image": "uploads/ec4owgv4.jpeg",
+      "product_visibility": "true",
+      "created_at": "06.03.2024",
+      "id": 22
     }
   ],
   "categories": [
@@ -116,6 +160,11 @@
       "category_title": "Furniture",
       "created_at": "06.03.2024",
       "id": 6
+    },
+    {
+      "category_title": "Groceries",
+      "created_at": "06.03.2024",
+      "id": 7
     }
   ]
 }
