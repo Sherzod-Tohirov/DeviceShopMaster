@@ -1,7 +1,7 @@
 import axios from "axios";
 import ProductType from "../types/ProductType";
 import CategoryType from "../types/CategoryType";
-const port = window.location.port || '3000'
+const port = '3000';
 const BASE_URL = `http://localhost:${port}`;
 export const api = {
   getCategories: () => {
